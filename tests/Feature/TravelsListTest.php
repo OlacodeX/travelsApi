@@ -41,7 +41,7 @@ class TravelsListTest extends TestCase
     }
 
       /**
-     * This tests if the data is returned correctly i.e paginated with 200 code
+     * This tests if only public data are returned
      */
     public function test_travels_list_shows_only_public_records(): void
     {
