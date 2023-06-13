@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Travel extends Model
@@ -34,7 +36,7 @@ class Travel extends Model
      * This function tells the sluggable package which column should be used fo generating the slug
      *
      */
-    public function sluggable(): array
+    public function sluggable(): Array
     {
         return [
             'slug' => [
