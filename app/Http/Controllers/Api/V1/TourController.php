@@ -22,6 +22,7 @@ class TourController extends Controller
         //     'sortBy' => "The 'sortBy' parameter accepts only 'price' value",
         //     'sortOrder' => "The 'sortOrder' parameter accepts only 'asc' or 'desc' values",
         // ]);
+         dd($validatedInput = $request->safe());
         $tours = $travel->tours()
             ->when($request->priceFrom, function ($query) use ($request) {
                 $query->where('price', '>=', $request->priceFrom * 100);
