@@ -17,11 +17,11 @@ class RoleMiddleware
     public function handle(Request $request, Closure $next, string $role): Response
     {
         // If user is not logged in about with unauthenticated code
-        if (! Auth::check()) {
+        if (!Auth::check()) {
             abort(401);
         }
         // if user is logged in but not with the role we passed in this case admin, return unauthorized
-        if (! Auth::user()->roles()->where('name', $role)->exists()) {
+        if (!Auth::user()->roles()->where('name', $role)->exists()) {
             abort(403);
         }
         return $next($request);
