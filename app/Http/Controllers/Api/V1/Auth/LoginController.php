@@ -10,7 +10,14 @@ use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
     /**
-     * Handle the incoming request.
+     * @group Auth
+     * 
+     * Login endpoint for all users.
+     * @bodyParam email string required 
+     * @bodyParam password string required
+     * @response 201 {
+     *  "access_token": d346fd9f-a86a-47e5-ba30-b3d25e69bfd4,
+     * }
      */
     public function __invoke(LoginRequest $request)
     {

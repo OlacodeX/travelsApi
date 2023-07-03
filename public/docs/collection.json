@@ -1,0 +1,291 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "Travel Tours API",
+        "_postman_id": "1b3134f7-a200-4806-a20a-838b42fc5471",
+        "description": "This is the docs for travel and tours API",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Admin",
+            "description": "",
+            "item": [
+                {
+                    "name": "Add a new travel.\n\nThis endpoint allows an admin to create a new travel",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/travels",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/travels"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"is_public\":true,\"name\":\"My Travel\",\"description\":\"Et deserunt sint impedit nihil expedita voluptates sunt.\",\"number_of_days\":20}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n \"id\": d346fd9f-a86a-47e5-ba30-b3d25e69bfd4,\n \"name\": \"Travel One\",\n \"slug\": \"Travel_One\",\n \"description\": \"This is travel one\",\n \"number_of_nights\": 19,\n \"number_of_days\": 20,\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Add tour to a travel.\n\nThis endpoint allows an admin to add tour to an existing travel",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/travels\/:travel_id\/tours",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/travels\/:travel_id\/tours",
+                            "variable": [
+                                {
+                                    "id": "travel_id",
+                                    "key": "travel_id",
+                                    "value": "est",
+                                    "description": "The ID of the travel."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"My Tour\",\"starting_date\":\"2023-10-09\",\"ending_date\":\"2023-12-10\",\"price\":798.2326573}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n \"id\": d346fd9f-a86a-47e5-ba30-b3d25e69bfd4,\n \"name\": \"Tour One\",\n \"starting_date\": 2023-10-10,\n \"ending_date\": 2023-10-30,\n \"price\": 2023.45,\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update existing travel.\n\nThis endpoint allows an admin to update an existing travel",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/admin\/travels\/:travel_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/admin\/travels\/:travel_id",
+                            "variable": [
+                                {
+                                    "id": "travel_id",
+                                    "key": "travel_id",
+                                    "value": "et",
+                                    "description": "The ID of the travel."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"is_public\":true,\"name\":\"My Travel\",\"description\":\"Ullam magni numquam dolore consectetur est accusantium.\",\"number_of_days\":20}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"id\": d346fd9f-a86a-47e5-ba30-b3d25e69bfd4,\n \"name\": \"Travel One\",\n \"slug\": \"Travel_One\",\n \"description\": \"This is travel one\",\n \"number_of_nights\": 19,\n \"number_of_days\": 20,\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Auth",
+            "description": "",
+            "item": [
+                {
+                    "name": "Login endpoint for all users.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"katrine26@example.org\",\"password\":\"}l>>|1P\\\"g)hu5qw8\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n \"access_token\": d346fd9f-a86a-47e5-ba30-b3d25e69bfd4,\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Users",
+            "description": "",
+            "item": [
+                {
+                    "name": "List of Public Travels.\n\nThis endpoint return a list of all public travels",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/travels",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/travels"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{{\n \"id\": d346fd9f-a86a-47e5-ba30-b3d25e69bfd4,\n \"name\": \"Travel One\",\n \"slug\": \"Travel_One\",\n \"description\": \"This is travel one\",\n \"number_of_nights\": 19,\n \"number_of_days\": 20,\n},\n{\n \"id\": d346fd9f-a86a-47e5-ba30-b3d25e69bfd5,\n \"name\": \"Travel Two\",\n \"slug\": \"Travel_Two\",\n \"description\": \"This is travel two\",\n \"number_of_nights\": 19,\n \"number_of_days\": 20,\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "List of Tours.\n\nThis endpoint return all tours for a particular travel\nYou can also filter the result with price, starting date and ending date",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/travels\/:travel_slug\/tours",
+                            "query": [
+                                {
+                                    "key": "sortBy",
+                                    "value": "eos",
+                                    "description": "Field to sort by. Accepts only price as value",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sortOrder",
+                                    "value": "dolor",
+                                    "description": "Order of sorting. Accepts either asc or desc as value",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/travels\/:travel_slug\/tours?sortBy=eos&sortOrder=dolor",
+                            "variable": [
+                                {
+                                    "id": "travel_slug",
+                                    "key": "travel_slug",
+                                    "value": "laborum",
+                                    "description": "The slug of the travel."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"priceFrom\":2.910355351,\"priceTo\":18567352.29,\"dateTo\":\"2023-07-03T09:25:18\",\"dateFrom\":\"2023-07-03T09:25:18\",\"sortBy\":\"price\",\"sortOrder\":\"desc\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{{\n \"id\": d346fd9f-a86a-47e5-ba30-b3d25e69bfd4,\n \"name\": \"Tour One\",\n \"starting_date\": 2023-10-10,\n \"ending_date\": 2023-10-30,\n \"price\": 2023.45,\n},\n{\n \"id\": d346fd9f-a86a-47e5-ba30-b3d25e69bfd5,\n \"name\": \"Tour Two\",\n \"starting_date\": 2023-10-10,\n \"ending_date\": 2023-10-30,\n \"price\": 2023.45,\n}\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "Authorization",
+                "value": null,
+                "type": "string"
+            }
+        ]
+    }
+}

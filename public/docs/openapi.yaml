@@ -1,0 +1,343 @@
+openapi: 3.0.3
+info:
+  title: 'Travel Tours API'
+  description: 'This is the docs for travel and tours API'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/v1/admin/travels:
+    post:
+      summary: "Add a new travel.\n\nThis endpoint allows an admin to create a new travel"
+      operationId: addANewTravelThisEndpointAllowsAnAdminToCreateANewTravel
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        201:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"id\": d346fd9f-a86a-47e5-ba30-b3d25e69bfd4,\n \"name\": \"Travel One\",\n \"slug\": \"Travel_One\",\n \"description\": \"This is travel one\",\n \"number_of_nights\": 19,\n \"number_of_days\": 20,\n}"
+      tags:
+        - Admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                is_public:
+                  type: boolean
+                  description: 'Specify travel is public or private.'
+                  example: true
+                name:
+                  type: string
+                  description: 'A unique name for travel.'
+                  example: 'My Travel'
+                description:
+                  type: string
+                  description: 'The description of travel.'
+                  example: 'Et deserunt sint impedit nihil expedita voluptates sunt.'
+                number_of_days:
+                  type: integer
+                  description: 'Specify how long travel will take in days.'
+                  example: 20
+              required:
+                - is_public
+                - name
+                - description
+  '/api/v1/admin/travels/{travel_id}/tours':
+    post:
+      summary: "Add tour to a travel.\n\nThis endpoint allows an admin to add tour to an existing travel"
+      operationId: addTourToATravelThisEndpointAllowsAnAdminToAddTourToAnExistingTravel
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        201:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"id\": d346fd9f-a86a-47e5-ba30-b3d25e69bfd4,\n \"name\": \"Tour One\",\n \"starting_date\": 2023-10-10,\n \"ending_date\": 2023-10-30,\n \"price\": 2023.45,\n}"
+      tags:
+        - Admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the tour.'
+                  example: 'My Tour'
+                starting_date:
+                  type: string
+                  description: 'The starting date of tour.'
+                  example: '2023-10-09'
+                ending_date:
+                  type: string
+                  description: 'The ending date of tour.'
+                  example: '2023-12-10'
+                price:
+                  type: number
+                  description: 'The price of the tour.'
+                  example: 798.2326573
+              required:
+                - name
+                - starting_date
+                - price
+    parameters:
+      -
+        in: path
+        name: travel_id
+        description: 'The ID of the travel.'
+        example: est
+        required: true
+        schema:
+          type: string
+  '/api/v1/admin/travels/{travel_id}':
+    put:
+      summary: "Update existing travel.\n\nThis endpoint allows an admin to update an existing travel"
+      operationId: updateExistingTravelThisEndpointAllowsAnAdminToUpdateAnExistingTravel
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"id\": d346fd9f-a86a-47e5-ba30-b3d25e69bfd4,\n \"name\": \"Travel One\",\n \"slug\": \"Travel_One\",\n \"description\": \"This is travel one\",\n \"number_of_nights\": 19,\n \"number_of_days\": 20,\n}"
+      tags:
+        - Admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                is_public:
+                  type: boolean
+                  description: 'Specify travel is public or private.'
+                  example: true
+                name:
+                  type: string
+                  description: 'A unique name for travel.'
+                  example: 'My Travel'
+                description:
+                  type: string
+                  description: 'The description of travel.'
+                  example: 'Ullam magni numquam dolore consectetur est accusantium.'
+                number_of_days:
+                  type: integer
+                  description: 'Specify how long travel will take in days.'
+                  example: 20
+              required:
+                - is_public
+                - name
+                - description
+    parameters:
+      -
+        in: path
+        name: travel_id
+        description: 'The ID of the travel.'
+        example: et
+        required: true
+        schema:
+          type: string
+  /api/v1/login:
+    post:
+      summary: 'Login endpoint for all users.'
+      operationId: loginEndpointForAllUsers
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        201:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"access_token\": d346fd9f-a86a-47e5-ba30-b3d25e69bfd4,\n}"
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: ''
+                  example: katrine26@example.org
+                password:
+                  type: string
+                  description: ''
+                  example: '}l>>|1P"g)hu5qw8'
+              required:
+                - email
+                - password
+  /api/v1/travels:
+    get:
+      summary: "List of Public Travels.\n\nThis endpoint return a list of all public travels"
+      operationId: listOfPublicTravelsThisEndpointReturnAListOfAllPublicTravels
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{{\n \"id\": d346fd9f-a86a-47e5-ba30-b3d25e69bfd4,\n \"name\": \"Travel One\",\n \"slug\": \"Travel_One\",\n \"description\": \"This is travel one\",\n \"number_of_nights\": 19,\n \"number_of_days\": 20,\n},\n{\n \"id\": d346fd9f-a86a-47e5-ba30-b3d25e69bfd5,\n \"name\": \"Travel Two\",\n \"slug\": \"Travel_Two\",\n \"description\": \"This is travel two\",\n \"number_of_nights\": 19,\n \"number_of_days\": 20,\n}"
+      tags:
+        - Users
+  '/api/v1/travels/{travel_slug}/tours':
+    get:
+      summary: "List of Tours.\n\nThis endpoint return all tours for a particular travel\nYou can also filter the result with price, starting date and ending date"
+      operationId: listOfToursThisEndpointReturnAllToursForAParticularTravelYouCanAlsoFilterTheResultWithPriceStartingDateAndEndingDate
+      description: ''
+      parameters:
+        -
+          in: query
+          name: sortBy
+          description: 'Field to sort by. Accepts only price as value'
+          example: eos
+          required: false
+          schema:
+            type: string
+            description: 'Field to sort by. Accepts only price as value'
+            example: eos
+        -
+          in: query
+          name: sortOrder
+          description: 'Order of sorting. Accepts either asc or desc as value'
+          example: dolor
+          required: false
+          schema:
+            type: string
+            description: 'Order of sorting. Accepts either asc or desc as value'
+            example: dolor
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{{\n \"id\": d346fd9f-a86a-47e5-ba30-b3d25e69bfd4,\n \"name\": \"Tour One\",\n \"starting_date\": 2023-10-10,\n \"ending_date\": 2023-10-30,\n \"price\": 2023.45,\n},\n{\n \"id\": d346fd9f-a86a-47e5-ba30-b3d25e69bfd5,\n \"name\": \"Tour Two\",\n \"starting_date\": 2023-10-10,\n \"ending_date\": 2023-10-30,\n \"price\": 2023.45,\n}\n}"
+      tags:
+        - Users
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                priceFrom:
+                  type: number
+                  description: ''
+                  example: 2.910355351
+                priceTo:
+                  type: number
+                  description: ''
+                  example: 18567352.29
+                dateTo:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2023-07-03T09:25:18'
+                dateFrom:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2023-07-03T09:25:18'
+                sortBy:
+                  type: string
+                  description: 'Must be one of <code>price</code>.'
+                  example: price
+                sortOrder:
+                  type: string
+                  description: 'Must be one of <code>asc</code> or <code>desc</code>.'
+                  example: desc
+    parameters:
+      -
+        in: path
+        name: travel_slug
+        description: 'The slug of the travel.'
+        example: laborum
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: Admin
+    description: ''
+  -
+    name: Auth
+    description: ''
+  -
+    name: Users
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []

@@ -18,9 +18,9 @@ use App\Http\Controllers\Api\V1\Auth;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 Route::get('travels', [TravelController::class, 'index']);
 Route::get('travels/{travel:slug}/tours', [TourController::class, 'index']);
