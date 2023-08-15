@@ -8,7 +8,8 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class LoginTest extends TestCase
-{use RefreshDatabase;
+{
+    use RefreshDatabase;
     public function test_login_returns_token_with_valid_credentials(): void
     {
         $user = User::factory()->create();
