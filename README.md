@@ -12,4 +12,4 @@ It is a travels management project with the following endpoints:
 The auth flow is built using [Laravel Sanctum](https://laravel.com/docs/10.x/sanctum#mobile-application-authentication) mobile application authentication method.
 
 #### Inspiration
-This project was inspired by Povilas Korop on his youtube channel @laraveldaily
+This project was inspired by Povilas Korop on his youtube channel [Laravel Daily](https://www.youtube.com/@LaravelDaily)
